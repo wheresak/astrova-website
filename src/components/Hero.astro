@@ -1,0 +1,179 @@
+---
+---
+
+<section class="relative overflow-hidden border-b border-border-hair min-h-[92vh] flex items-center">
+  <canvas id="field-canvas" class="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000" aria-hidden="true"></canvas>
+
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink pointer-events-none"></div>
+
+  <div class="relative mx-auto max-w-6xl px-6 py-28 w-full">
+    <div class="overflow-hidden mb-6">
+      <p class="font-display text-xs font-medium tracking-[0.25em] text-accent uppercase reveal-line" style="--delay: 0ms">
+        Auto shop scaling &middot; Ads &middot; Websites &middot; Systems
+      </p>
+    </div>
+
+    <h1 class="font-display text-[13vw] sm:text-6xl md:text-7xl lg:text-8xl font-medium leading-[1.1] tracking-tight max-w-5xl">
+      <span class="block overflow-hidden">
+        <span class="block reveal-line" style="--delay: 80ms">Scale your auto shop</span>
+      </span>
+      <span class="block overflow-hidden">
+        <span class="block reveal-line" style="--delay: 180ms">with systems that</span>
+      </span>
+      <span class="block overflow-hidden">
+        <span class="block reveal-line text-accent" style="--delay: 280ms">actually convert</span>
+      </span>
+    </h1>
+
+    <div class="overflow-hidden mt-8 max-w-xl">
+      <p class="reveal-line text-muted text-base md:text-lg leading-relaxed" style="--delay: 420ms">
+        Astrova Systems helps auto shops grow through high-converting websites, Google Ads, Meta Ads, and streamlined lead systems built to turn traffic into clients.
+      </p>
+    </div>
+
+    <div class="overflow-hidden mt-10">
+      <div class="flex flex-wrap items-center gap-4 reveal-line" style="--delay: 540ms">
+        <a href="#book" id="magnetic-cta"
+          class="relative inline-flex items-center justify-center rounded-full bg-accent text-ink font-medium text-sm px-7 py-4 transition-transform">
+          <span>Book a strategy call</span>
+        </a>
+        <a href="#services"
+          class="inline-flex items-center justify-center rounded-full border border-border-hair text-paper font-medium text-sm px-7 py-4 transition hover:border-muted hover:bg-surface">
+          Explore services
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0 reveal-line" style="--delay: 900ms">
+    <span class="text-[10px] tracking-[0.2em] text-muted uppercase">Scroll</span>
+    <span class="block w-px h-8 bg-border-hair relative overflow-hidden">
+      <span class="absolute top-0 left-0 w-full h-1/2 bg-accent animate-scroll-line"></span>
+    </span>
+  </div>
+</section>
+
+<style>
+  .reveal-line {
+    animation: reveal-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--delay, 0ms);
+  }
+  @keyframes reveal-up {
+    from { transform: translateY(110%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes scroll-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+  }
+  .animate-scroll-line {
+    animation: scroll-line 1.8s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-line {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    .animate-scroll-line {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  const canvas = document.getElementById('field-canvas') as HTMLCanvasElement | null;
+  const ctx = canvas?.getContext('2d');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (canvas && ctx && !reduceMotion) {
+    let width = 0, height = 0;
+    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    type Point = { x: number; y: number; tx: number; ty: number; r: number };
+    let points: Point[] = [];
+
+    function layout() {
+      const rect = canvas!.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+      canvas!.width = width * dpr;
+      canvas!.height = height * dpr;
+      ctx!.scale(dpr, dpr);
+
+      const cols = Math.max(6, Math.floor(width / 90));
+      const rows = Math.max(4, Math.floor(height / 90));
+      const spacingX = width / cols;
+      const spacingY = height / rows;
+
+      points = [];
+      for (let i = 0; i <= cols; i++) {
+        for (let j = 0; j <= rows; j++) {
+          const tx = i * spacingX;
+          const ty = j * spacingY;
+          points.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            tx,
+            ty,
+            r: 1.4,
+          });
+        }
+      }
+    }
+
+    layout();
+
+    let progress = 0;
+    let start: number | null = null;
+    const duration = 2200;
+
+    function ease(t: number) {
+      return 1 - Math.pow(1 - t, 4);
+    }
+
+    function frame(now: number) {
+      if (start === null) start = now;
+      const elapsed = now - start;
+      progress = Math.min(1, elapsed / duration);
+      const eased = ease(progress);
+
+      ctx!.clearRect(0, 0, width, height);
+      ctx!.fillStyle = 'rgba(94, 230, 201, 0.55)';
+
+      for (const p of points) {
+        const x = p.x + (p.tx - p.x) * eased;
+        const y = p.y + (p.ty - p.y) * eased;
+        ctx!.beginPath();
+        ctx!.arc(x, y, p.r, 0, Math.PI * 2);
+        ctx!.fill();
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      }
+    }
+
+    canvas.style.opacity = '1';
+    requestAnimationFrame(frame);
+
+    let resizeTimer: number;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(layout, 150);
+    });
+  }
+
+  const cta = document.getElementById('magnetic-cta');
+  if (cta && !reduceMotion) {
+    cta.addEventListener('mousemove', (e) => {
+      const rect = cta.getBoundingClientRect();
+      const x = (e as MouseEvent).clientX - rect.left - rect.width / 2;
+      const y = (e as MouseEvent).clientY - rect.top - rect.height / 2;
+      cta.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+    });
+    cta.addEventListener('mouseleave', () => {
+      cta.style.transform = 'translate(0, 0)';
+    });
+  }
+</script>

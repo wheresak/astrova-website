@@ -1,0 +1,55 @@
+---
+interface Testimonial {
+  video: string;
+  name: string;
+  company: string;
+  poster?: string;
+}
+
+interface Props {
+  testimonials: Testimonial[];
+}
+
+const { testimonials } = Astro.props;
+---
+
+<section class="py-16 md:py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+      {testimonials.map((t, i) => (
+        <figure
+          class="testimonial-card group"
+          data-reveal
+          style={`--reveal-delay: ${(i % 6) * 70}ms`}
+        >
+          <div class="aspect-video sm:aspect-[9/16] rounded-2xl overflow-hidden bg-surface border border-border-hair transition-all duration-300">
+            <video
+              src={t.video}
+              poster={t.poster}
+              controls
+              preload="none"
+              class="w-full h-full object-cover"
+              aria-label={`Video testimonial from ${t.name}, ${t.company}`}
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <figcaption class="mt-4">
+            <p class="font-display text-base font-medium">{t.name}</p>
+            <p class="text-muted text-sm">{t.company}</p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonial-card > div {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .testimonial-card:hover > div {
+    transform: translateY(-6px);
+    border-color: var(--color-muted);
+  }
+</style>

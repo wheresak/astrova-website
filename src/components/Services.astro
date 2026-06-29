@@ -1,0 +1,95 @@
+---
+const services = [
+  {
+    title: 'Lead systems',
+    description: 'Astrova Systems streamlines lead flow, follow-up, and conversion so businesses can scale more efficiently.',
+    tag: 'Automation',
+  },
+  {
+    title: 'Google Ads',
+    description: 'Strategic search campaigns designed to bring in high-intent leads ready to take action.',
+    tag: 'Paid search',
+  },
+  {
+    title: 'Meta Ads',
+    description: 'Facebook and Instagram campaigns built to generate attention, leads, and profitable customer growth.',
+    tag: 'Paid social',
+  },
+  {
+    title: 'Website creation',
+    description: 'Clean, modern, high-converting websites tailored to help businesses look credible and close more clients.',
+    tag: 'Design + build',
+  },
+];
+---
+
+<section id="services" class="border-b border-border-hair py-24 md:py-32">
+  <div class="mx-auto max-w-6xl px-6">
+    <p class="font-display text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4" data-reveal>
+      What Astrova does
+    </p>
+    <h2 class="font-display text-3xl md:text-5xl font-medium leading-tight max-w-xl mb-14 md:mb-20" data-reveal style="--reveal-delay: 80ms">
+      Built to help auto shops attract, convert, and scale
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+      {services.map((service, i) => (
+        <div
+          class="tilt-card relative rounded-2xl bg-surface border border-border-hair p-8 md:p-10 overflow-hidden"
+          data-reveal
+          style={`--reveal-delay: ${i * 90}ms`}
+        >
+          <div class="tilt-card-glow"></div>
+          <span class="relative inline-block text-xs font-medium tracking-[0.15em] text-accent uppercase mb-6">
+            {service.tag}
+          </span>
+          <h3 class="relative font-display text-2xl font-medium mb-3">{service.title}</h3>
+          <p class="relative text-muted text-sm md:text-base leading-relaxed">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tilt-card {
+    transition: transform 0.25s ease-out, border-color 0.25s ease-out;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  .tilt-card:hover {
+    border-color: var(--color-border-hair);
+  }
+  .tilt-card-glow {
+    position: absolute;
+    inset: -1px;
+    background: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%), rgba(94, 230, 201, 0.12), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .tilt-card:hover .tilt-card-glow {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion) {
+    document.querySelectorAll<HTMLElement>('.tilt-card').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateX = ((y - rect.height / 2) / rect.height) * -6;
+        const rotateY = ((x - rect.width / 2) / rect.width) * 6;
+        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        card.style.setProperty('--mx', `${x}px`);
+        card.style.setProperty('--my', `${y}px`);
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
+      });
+    });
+  }
+</script>

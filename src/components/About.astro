@@ -1,0 +1,69 @@
+---
+---
+
+<section id="about" class="border-b border-border-hair py-24 md:py-32 overflow-hidden">
+  <div class="mx-auto max-w-6xl px-6 grid grid-cols-1 md:grid-cols-[1fr_1.3fr] gap-12 md:gap-20 items-center">
+    <div class="order-2 md:order-1" data-reveal-scale>
+      <div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-surface max-w-sm mx-auto md:mx-0">
+        <img
+          id="about-photo"
+          src="/images/zeyad1.jpg"
+          alt="Zeyad Azab, founder of Astrova Systems"
+          class="w-full h-full object-cover scale-95"
+          loading="lazy"
+          width="400"
+          height="500"
+        />
+        <div class="absolute inset-0 ring-1 ring-inset ring-border-hair rounded-2xl"></div>
+      </div>
+    </div>
+
+    <div class="order-1 md:order-2">
+      <p class="font-display text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4" data-reveal>
+        About Astrova
+      </p>
+      <h2 class="font-display text-3xl md:text-5xl font-medium leading-tight mb-8" data-reveal style="--reveal-delay: 80ms">
+        Built by Zeyad Azab to help auto shops grow smarter
+      </h2>
+
+      <blockquote class="border-l-2 border-accent pl-6 mb-8 max-w-lg" data-reveal style="--reveal-delay: 160ms">
+        <p class="font-display text-xl md:text-2xl font-medium leading-snug">
+          "Create an online presence and acquisition system that doesn't just look good, it performs."
+        </p>
+      </blockquote>
+
+      <div class="space-y-4 text-muted text-sm md:text-base leading-relaxed max-w-xl" data-reveal style="--reveal-delay: 240ms">
+        <p>
+          Astrova Systems is focused on helping businesses scale through a combination of paid advertising, website creation, and lead management systems.
+        </p>
+        <p>
+          Founded by Zeyad Azab, Astrova Systems partners with ambitious businesses to build scalable campaigns, optimized websites, and systems that drive consistent growth.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const photo = document.getElementById('about-photo');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (photo && !reduceMotion) {
+    let ticking = false;
+    function update() {
+      const rect = photo!.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const progress = 1 - Math.min(1, Math.max(0, (rect.top + rect.height / 2) / vh));
+      const shift = (progress - 0.5) * 24;
+      photo!.style.transform = `scale(1.1) translateY(${shift}px)`;
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    });
+    update();
+  }
+</script>

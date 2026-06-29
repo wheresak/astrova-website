@@ -1,0 +1,147 @@
+---
+const reviews = [
+  {
+    text: "Astrova's expertise in online advertising and customer engagement helped grow our visibility and bring in more clients for our window tint and wrap business. The team is professional, responsive, and ahead of industry trends.",
+    name: 'Musa Asim',
+  },
+  {
+    text: "We started using Astrova to stop missing calls and it immediately improved responsiveness. The AI receptionist qualifies inquiries and books appointments, while texting and review automation keeps follow-ups consistent.",
+    name: 'Moe',
+  },
+  {
+    text: "Very happy with the results on my window tint business marketing. Professional, reliable, and knows what works. Helped take my branding and online presence to the next level.",
+    name: 'Joshua Murillo',
+  },
+  {
+    text: "Amazing business and fast service. After I started using Astrova, the leads for my business went through the roof. I would absolutely recommend Astrova to anyone starting a new business or needing more business.",
+    name: 'koof "Gone Baby Gone" poofmap',
+  },
+  {
+    text: "Astrova Systems delivers real results. Their team is professional, knowledgeable, and truly understands advertising and AI-driven growth. We saw increased visibility and better customer engagement quickly. Highly recommend them to anyone looking to scale their business.",
+    name: 'Ayan Alvi',
+  },
+  {
+    text: "After using Astrova Systems for my business I've seen a massive increase in customer flow and revenue! Highly recommend for self owned businesses.",
+    name: 'M H',
+  },
+  {
+    text: "Amazing and fast service. After I started using Astrova, the leads for my business went through the roof. Would recommend Astrova to anyone starting new or needing more business.",
+    name: 'Ahmad Javaid',
+  },
+  {
+    text: "I found Astrova when I just started my tint shop and had no clue how to market or anything. We now have 3-5 cars a day because of Zico and what he does. Best system for this and he helped me with my lawn care business too. 10/10 recommend.",
+    name: 'Ryan Lund',
+  },
+  {
+    text: "Piloting Astrova within our organization has been a great experience. Astrova significantly reduced our friction, leading to better operational results.",
+    name: 'Sync Visual Media',
+  },
+  {
+    text: "Great experience! The team was professional, responsive, and really understood what my business needed. The advertising helped increase visibility and brought in more customers. Highly recommend.",
+    name: 'Jose Chavez',
+  },
+  {
+    text: "My husband uses Astrova Systems for his shop and has seen a huge increase in revenue! I honestly can't imagine working without them.",
+    name: 'Duaa Husein',
+  },
+  {
+    text: "Absolutely best in the business. If you want results, tap in with the best.",
+    name: 'Jeremy Anderson',
+  },
+  {
+    text: "I've been using Astrova for my business and it has helped me scale my business tremendously.",
+    name: 'Marwah Javed',
+  },
+  {
+    text: "They increased business with qualified leads. Remarkable results for a fraction of the price.",
+    name: 'Tracy Johnson',
+  },
+  {
+    text: "Best advertising and AI integrations company on the market. Highly recommend.",
+    name: 'Sobia Asim',
+  },
+  {
+    text: "Advertising genius! 100% recommend these guys, they know what they're doing.",
+    name: 'Muhammad Hassan',
+  },
+  {
+    text: "The AI services are a game changer.",
+    name: 'Carlos Velazquez',
+  },
+];
+
+const googleReviewsUrl = 'https://maps.app.goo.gl/efTJtVeNpPoGZwUF8';
+const doubled = [...reviews, ...reviews];
+---
+
+<section class="border-b border-border-hair py-24 md:py-32 overflow-hidden">
+  <div class="mx-auto max-w-6xl px-6 mb-14 md:mb-20 flex items-end justify-between flex-wrap gap-4">
+    <div>
+      <p class="font-display text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4" data-reveal>
+        Google reviews
+      </p>
+      <h2 class="font-display text-3xl md:text-5xl font-medium leading-tight max-w-xl" data-reveal style="--reveal-delay: 80ms">
+        What clients are saying on Google
+      </h2>
+    </div>
+    <a
+      href={googleReviewsUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hidden md:inline-flex text-sm text-accent hover:text-accent-dim transition-colors"
+      data-reveal
+      style="--reveal-delay: 120ms"
+    >
+      See more on Google &rarr;
+    </a>
+  </div>
+
+  <div class="relative" data-reveal>
+    <div class="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-ink to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-ink to-transparent z-10 pointer-events-none"></div>
+
+    <div class="flex w-max gap-5 md:gap-6 animate-reviews" style="--duration: 90s;">
+      {doubled.map((review) => (
+        <div class="review-card w-[78vw] sm:w-[360px] shrink-0 rounded-2xl bg-surface border border-border-hair p-7 flex flex-col transition-colors duration-300">
+          <div class="flex gap-0.5 mb-4 text-accent" aria-label="5 out of 5 stars">
+            {Array.from({ length: 5 }).map(() => (
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+            ))}
+          </div>
+          <p class="text-paper text-sm leading-relaxed flex-1">"{review.text}"</p>
+          <p class="font-display text-sm font-medium mt-5">{review.name}</p>
+          <p class="text-muted text-xs mt-0.5">Google review</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-6 mt-8 text-center md:hidden">
+    <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-accent hover:text-accent-dim transition-colors">
+      See more on Google &rarr;
+    </a>
+  </div>
+</section>
+
+<style>
+  @keyframes reviews-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-reviews {
+    animation: reviews-scroll var(--duration) linear infinite;
+  }
+  .animate-reviews:hover {
+    animation-play-state: paused;
+  }
+  .review-card:hover {
+    border-color: var(--color-muted);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-reviews {
+      animation: none;
+    }
+  }
+</style>

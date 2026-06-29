@@ -1,0 +1,63 @@
+---
+const logos = [
+  { name: 'Apex Autowerks', src: '/images/apexlogo.png' },
+  { name: 'Wraptors Kingston', src: '/images/wraptors.png' },
+  { name: 'Tint World', src: '/images/tintworld.jpg' },
+  { name: 'Elite Auto Spa', src: '/images/eliteautospa.jpg' },
+  { name: 'Black Optix', src: '/images/blackoptix.png' },
+  { name: 'Legends', src: '/images/legends.jpg' },
+  { name: 'Advanced', src: '/images/advanced.jpg' },
+  { name: 'Triple', src: '/images/triple.png' },
+  { name: 'Iced', src: '/images/iced.png' },
+  { name: 'Shade-EZ', src: '/images/shade.jpg' },
+  { name: 'Dream', src: '/images/dream.jpg' },
+  { name: 'Elite Tint', src: '/images/elitetint.png' },
+  { name: 'Velocity', src: '/images/velocity.png' },
+];
+---
+
+<section class="border-b border-border-hair py-14 md:py-20 overflow-hidden" aria-label="Client brands">
+  <p class="text-center text-xs font-medium tracking-[0.2em] text-muted uppercase mb-10 px-6" data-reveal>
+    Campaigns and systems built for these businesses
+  </p>
+
+  <div class="relative">
+    <div class="absolute inset-y-0 left-0 w-20 md:w-40 bg-gradient-to-r from-ink to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute inset-y-0 right-0 w-20 md:w-40 bg-gradient-to-l from-ink to-transparent z-10 pointer-events-none"></div>
+
+    <div class="flex w-max animate-marquee" style="--duration: 42s;">
+      {[...logos, ...logos].map((logo) => (
+        <div class="logo-cell flex items-center justify-center mx-7 md:mx-12 h-10 md:h-12 shrink-0 transition-transform duration-300">
+          <img
+            src={logo.src}
+            alt={`${logo.name} logo`}
+            class="h-full w-auto max-w-[120px] object-contain transition-all duration-300"
+            loading="lazy"
+            width="120"
+            height="48"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee var(--duration) linear infinite;
+  }
+
+  .logo-cell:hover {
+  transform: scale(1.08);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none;
+    }
+  }
+</style>

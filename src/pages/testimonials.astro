@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import TestimonialGrid from '../components/TestimonialGrid.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
+
+const allTestimonials = [
+  { video: '/videos/testimonial-1.mp4', poster: '/images/poster1.png', name: 'Oren', company: 'Dream Car Customs' },
+  { video: '/videos/testimonial-2.mp4', poster: '/images/poster2.png', name: 'Ryan', company: 'Shade-EZ' },
+  { video: '/videos/testimonial-3.mp4', poster: '/images/poster3.png', name: 'Wiley', company: 'Triple Threat Tinting' },
+  { video: '/videos/testimonial-4.mp4', poster: '/images/poster4.png', name: 'Juan', company: 'Iced Out Tinting' },
+  { video: '/videos/testimonial-5.mp4', poster: '/images/poster5.png', name: 'Jeremy', company: 'Legends Auto Spa' },
+  { video: '/videos/testimonial-6.mp4', poster: '/images/poster6.png', name: 'Kareem', company: 'Blackout Customs' },
+  { video: '/videos/testimonial-7.mp4', poster: '/images/poster7.png', name: 'Willy', company: 'Elite Tint Specialist' },
+  { video: '/videos/testimonial-8.mp4', poster: '/images/poster8.png', name: 'Kurt', company: 'Tint World' },
+  { video: '/videos/testimonial-9.mp4', poster: '/images/poster9.png', name: 'John', company: 'Tint Shop in California' },
+  { video: '/videos/testimonial-10.mp4', poster: '/images/poster10.png', name: 'Jared', company: 'Wraptors Kingston' },
+  { video: '/videos/testimonial-11.mp4', poster: '/images/poster11.png', name: 'Joshua', company: 'Got Tint' },
+  { video: '/videos/testimonial-12.mp4', poster: '/images/poster12.png', name: 'Nicholas', company: 'Southside Mobile Detail and Tint' },
+  { video: '/videos/testimonial-13.mp4', poster: '/images/poster13.png', name: 'Charles', company: 'Island Breeze Tint' },
+];
+---
+
+<Layout
+  title="Client testimonials | Astrova Systems"
+  description="Hear directly from businesses that Astrova Systems has helped through ads, websites, and lead generation systems."
+>
+  <ScrollReveal />
+  <Header />
+  <main>
+    <div class="pt-20 md:pt-28 pb-4 text-center px-6">
+      <p class="font-display text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4" data-reveal>
+        Client testimonials
+      </p>
+      <h1 class="font-display text-3xl md:text-5xl font-medium leading-tight max-w-2xl mx-auto" data-reveal style="--reveal-delay: 80ms">
+        Hear directly from the businesses we've helped grow
+      </h1>
+    </div>
+    <TestimonialGrid testimonials={allTestimonials} />
+    <CTASection />
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import LogoMarquee from '../components/LogoMarquee.astro';
+import Services from '../components/Services.astro';
+import Process from '../components/Process.astro';
+import About from '../components/About.astro';
+import Testimonials from '../components/Testimonials.astro';
+import GoogleReviews from '../components/GoogleReviews.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
+import OrganizationSchema from '../components/OrganizationSchema.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
+
+const homeTestimonials = [
+  { video: '/videos/testimonial-10.mp4', poster: '/images/poster10.png', name: 'Jared', company: 'Wraptors Kingston' },
+  { video: '/videos/testimonial-2.mp4', poster: '/images/poster2.png', name: 'Ryan', company: 'Shade-EZ' },
+  { video: '/videos/testimonial-11.mp4', poster: '/images/poster11.png', name: 'Joshua', company: 'Got Tint' },
+];
+---
+
+<Layout
+  title="Astrova Systems | Auto shop scaling through ads, websites, and systems"
+  description="Astrova Systems helps auto shops grow through high-converting websites, Google Ads, Meta Ads, and streamlined lead systems built to turn traffic into clients."
+>
+  <OrganizationSchema slot="head" />
+  <ScrollReveal />
+  <Header />
+  <main>
+    <Hero />
+    <LogoMarquee />
+    <Services />
+    <Process />
+    <About />
+    <Testimonials testimonials={homeTestimonials} />
+    <div class="text-center -mt-10 mb-8">
+      <a href="/testimonials" class="text-sm text-accent hover:text-accent-dim transition-colors">
+        View all testimonials &rarr;
+      </a>
+    </div>
+    <GoogleReviews />
+    <CTASection />
+  </main>
+  <Footer />
+</Layout>

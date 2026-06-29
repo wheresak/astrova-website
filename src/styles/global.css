@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-ink: #0B0C0E;
+  --color-surface: #16181C;
+  --color-surface-raised: #1C1F24;
+  --color-border-hair: #2A2D33;
+  --color-muted: #9BA1AB;
+  --color-paper: #F5F6F7;
+  --color-accent: #5EE6C9;
+  --color-accent-dim: #3DA890;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+  }
+}

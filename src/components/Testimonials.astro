@@ -1,0 +1,107 @@
+---
+interface Testimonial {
+  video: string;
+  name: string;
+  company: string;
+  poster?: string;
+}
+
+interface Props {
+  testimonials: Testimonial[];
+  showHeading?: boolean;
+}
+
+const { testimonials, showHeading = true } = Astro.props;
+const trackId = `track-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<section class:list={['py-24 md:py-32', { 'border-b border-border-hair': showHeading }]}>
+  <div class="mx-auto max-w-6xl px-6">
+    {showHeading && (
+      <div class="flex items-end justify-between flex-wrap gap-4 mb-14 md:mb-20">
+        <div>
+          <p class="font-display text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4" data-reveal>
+            Client testimonials
+          </p>
+          <h2 class="font-display text-3xl md:text-5xl font-medium leading-tight max-w-xl" data-reveal style="--reveal-delay: 80ms">
+            Real words from real clients
+          </h2>
+        </div>
+        <div class="hidden md:flex gap-3" data-reveal style="--reveal-delay: 120ms">
+          <button type="button" class="carousel-prev w-11 h-11 rounded-full border border-border-hair flex items-center justify-center hover:border-muted transition-colors" aria-label="Previous testimonial" data-track={trackId}>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+          </button>
+          <button type="button" class="carousel-next w-11 h-11 rounded-full border border-border-hair flex items-center justify-center hover:border-muted transition-colors" aria-label="Next testimonial" data-track={trackId}>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+      </div>
+    )}
+  </div>
+
+  <div class="mx-auto max-w-6xl px-6">
+    <div
+      id={trackId}
+      class="carousel-track flex gap-5 md:gap-6 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing"
+      data-reveal
+    >
+      {testimonials.map((t) => (
+        <figure class="group shrink-0 snap-start w-[78vw] sm:w-[340px] select-none">
+          <div class="aspect-video sm:aspect-[9/16] rounded-2xl overflow-hidden bg-surface border border-border-hair">
+            <video
+              src={t.video}
+              poster={t.poster}
+              controls
+              preload="none"
+              class="w-full h-full object-cover pointer-events-auto"
+              aria-label={`Video testimonial from ${t.name}, ${t.company}`}
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <figcaption class="mt-4">
+            <p class="font-display text-base font-medium">{t.name}</p>
+            <p class="text-muted text-sm">{t.company}</p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { scrollbar-width: none; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.carousel-track').forEach((track) => {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+    window.addEventListener('mouseup', () => { isDown = false; });
+    track.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      track.scrollLeft = scrollLeft - (x - startX) * 1.4;
+    });
+  });
+
+  document.querySelectorAll<HTMLButtonElement>('.carousel-prev, .carousel-next').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.track;
+      const track = id ? document.getElementById(id) : null;
+      if (!track) return;
+      const card = track.querySelector('figure');
+      const cardWidth = card ? card.getBoundingClientRect().width + 24 : 340;
+      track.scrollBy({ left: btn.classList.contains('carousel-next') ? cardWidth : -cardWidth, behavior: 'smooth' });
+    });
+  });
+</script>

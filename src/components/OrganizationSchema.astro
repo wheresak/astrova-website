@@ -1,0 +1,19 @@
+---
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Astrova Systems',
+  url: 'https://astrovasystems.com',
+  logo: 'https://astrovasystems.com/images/astrova-logo.png',
+  description:
+    'Astrova Systems helps businesses grow through high-converting websites, Google Ads, Meta Ads, and streamlined lead systems built to turn traffic into clients.',
+  founder: {
+    '@type': 'Person',
+    name: 'Zeyad Azab',
+  },
+  areaServed: 'US',
+  sameAs: [],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
