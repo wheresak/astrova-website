@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ServicePageBody from '../../components/ServicePageBody.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+import ScrollReveal from '../../components/ScrollReveal.astro';
+---
+
+<Layout
+  title="Meta Ads Management | Astrova Systems"
+  description="Facebook and Instagram ad campaigns built to generate attention, qualified leads, and profitable growth for auto shops and home service businesses nationwide."
+>
+  <ScrollReveal />
+  <Header />
+  <main>
+    <Breadcrumbs items={[
+      { name: 'Home', url: '/' },
+      { name: 'Services', url: '/#services' },
+      { name: 'Meta Ads', url: '/services/meta-ads' },
+    ]} />
+    <ServicePageBody
+      eyebrow="Meta Ads"
+      h1="Facebook & Instagram Ads That Build Attention and Bring In Leads"
+      intro="Astrova Systems runs Facebook and Instagram ad campaigns built to put your business in front of the right audience before they're even searching for you. We combine creative, targeting, and offer strategy to generate consistent leads for auto shops and home service businesses."
+      whatsIncluded={[
+        'Audience research and targeting built around your ideal customer profile',
+        'Ad creative direction, copywriting, and creative testing across formats',
+        'Lead form and landing page setup so every campaign has a clear conversion path',
+        'Retargeting campaigns to bring back people who showed interest but didn\'t convert',
+        'Monthly performance reporting with clear cost-per-lead and ROI tracking',
+      ]}
+      whoItsFor={[
+        'Auto shops, tint shops, and detailing businesses that want to build local brand awareness',
+        'Home service businesses that want a steady stream of leads beyond word-of-mouth',
+        'Businesses with strong before/after visuals or testimonials that convert well on social',
+        'Owners who want their ad spend managed by a team that reports on real numbers',
+      ]}
+      resultsToExpect={[
+        'Increased visibility and brand recognition in your local service area',
+        'A consistent flow of qualified leads delivered through forms, DMs, or calls',
+        'Retargeting campaigns that recover interested visitors who didn\'t convert the first time',
+        'Clear, monthly reporting so you always know what your ad spend is producing',
+      ]}
+      relatedLinks={[
+        { label: 'Google Ads management', href: '/services/google-ads' },
+        { label: 'Website Design & Development', href: '/services/website-design' },
+        { label: 'What Is a Lead System and Why Your Business Needs One', href: '/blog/what-is-a-lead-system' },
+      ]}
+    />
+  </main>
+  <CTASection />
+  <Footer />
+</Layout>

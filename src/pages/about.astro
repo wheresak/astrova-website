@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
+---
+
+<Layout
+  title="About Astrova Systems | Astrova Systems"
+  description="Meet Zeyad Azab and the Astrova Systems team, and learn how we help auto shops and home service businesses grow through ads, websites, and lead systems."
+>
+  <ScrollReveal />
+  <Header />
+  <main>
+    <Breadcrumbs items={[
+      { name: 'Home', url: '/' },
+      { name: 'About', url: '/about' },
+    ]} />
+
+    <section class="border-b border-border-hair pt-16 md:pt-20 pb-20 md:pb-28">
+      <div class="mx-auto max-w-6xl px-6 grid grid-cols-1 md:grid-cols-[1fr_1.3fr] gap-12 md:gap-20 items-center">
+        <div>
+          <div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-surface max-w-sm mx-auto md:mx-0">
+            <img
+              src="/images/zeyad1.jpg"
+              alt="Zeyad Azab, founder of Astrova Systems"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              width="400"
+              height="500"
+            />
+            <div class="absolute inset-0 ring-1 ring-inset ring-border-hair rounded-2xl"></div>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-display text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4">
+            About Astrova
+          </p>
+          <h1 class="font-display text-3xl md:text-5xl font-medium leading-tight mb-8">
+            Built by Zeyad Azab to help auto shops and home service businesses grow smarter
+          </h1>
+          <blockquote class="border-l-2 border-accent pl-6 mb-8 max-w-lg">
+            <p class="font-display text-xl md:text-2xl font-medium leading-snug">
+              "Create an online presence and acquisition system that doesn't just look good, it performs."
+            </p>
+          </blockquote>
+          <p class="text-muted text-sm md:text-base leading-relaxed max-w-xl">
+            Astrova Systems is a marketing and systems partner for auto shops, tint shops, detailing businesses, and home service companies that are ready to scale past word-of-mouth and referrals.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-border-hair py-16 md:py-24">
+      <div class="mx-auto max-w-3xl px-6">
+        <h2 class="font-display text-2xl md:text-3xl font-medium leading-tight mb-6">Our story</h2>
+        <div class="space-y-4 text-muted text-sm md:text-base leading-relaxed">
+          <p>
+            Astrova Systems was founded by Zeyad Azab after seeing the same problem repeat itself across auto shops and home service businesses: great work, inconsistent leads. Owners were excellent at the job they did, but had no reliable system for attracting new customers, converting website traffic, or following up with leads before a competitor did.
+          </p>
+          <p>
+            Zeyad started Astrova to close that gap — combining paid advertising, website design, and lead automation into a single system built specifically for service-based businesses, rather than generic marketing playbooks that don't account for how these businesses actually get customers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-border-hair py-16 md:py-24">
+      <div class="mx-auto max-w-3xl px-6">
+        <h2 class="font-display text-2xl md:text-3xl font-medium leading-tight mb-6">Why Astrova exists</h2>
+        <div class="space-y-4 text-muted text-sm md:text-base leading-relaxed">
+          <p>
+            Most agencies sell one piece of the puzzle: ads, or a website, or a CRM. Astrova Systems exists because those pieces only work when they're connected. A great <a href="/services/google-ads" class="text-accent hover:text-accent-dim transition-colors">Google Ads</a> campaign sending traffic to a slow, outdated website wastes ad spend. A beautiful <a href="/services/website-design" class="text-accent hover:text-accent-dim transition-colors">website</a> with no follow-up system loses leads to slow response times. Astrova builds the full system — traffic, conversion, and follow-up — so every part reinforces the next.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-border-hair py-16 md:py-24">
+      <div class="mx-auto max-w-3xl px-6">
+        <h2 class="font-display text-2xl md:text-3xl font-medium leading-tight mb-6">How we work</h2>
+        <div class="space-y-4 text-muted text-sm md:text-base leading-relaxed">
+          <p>
+            Every engagement starts with understanding how a business actually gets customers today, then building or improving the systems around <a href="/services/google-ads" class="text-accent hover:text-accent-dim transition-colors">Google Ads</a>, <a href="/services/meta-ads" class="text-accent hover:text-accent-dim transition-colors">Meta Ads</a>, <a href="/services/local-seo" class="text-accent hover:text-accent-dim transition-colors">local SEO</a>, and <a href="/services/lead-systems" class="text-accent hover:text-accent-dim transition-colors">lead follow-up</a> that fit that business specifically. We report on real numbers — cost per lead, response time, close rate — not vanity metrics.
+          </p>
+          <p>
+            Want to see if Astrova is a fit for your business? <a href="/contact" class="text-accent hover:text-accent-dim transition-colors">Get in touch</a> or book a call directly below.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <CTASection />
+  <Footer />
+</Layout>

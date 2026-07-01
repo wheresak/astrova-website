@@ -1,0 +1,84 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BlogPostingSchema from '../../components/BlogPostingSchema.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+import ScrollReveal from '../../components/ScrollReveal.astro';
+
+const title = 'What Is a Lead System and Why Your Business Needs One';
+const description = 'Discover what a lead system actually is, why slow follow-up is costing your business customers, and how automation helps you capture and convert every lead.';
+const url = '/blog/what-is-a-lead-system';
+const datePublished = '2026-07-01';
+---
+
+<Layout title={`${title} | Astrova Systems`} description={description}>
+  <ScrollReveal />
+  <Header />
+  <BlogPostingSchema headline={title} description={description} datePublished={datePublished} url={url} />
+  <main>
+    <Breadcrumbs items={[
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blog' },
+      { name: title, url },
+    ]} />
+
+    <article class="py-16 md:py-24">
+      <div class="mx-auto max-w-3xl px-6">
+        <p class="font-display text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4">
+          Lead Systems
+        </p>
+        <h1 class="font-display text-3xl md:text-5xl font-medium leading-tight mb-10">
+          {title}
+        </h1>
+
+        <div class="space-y-10 text-muted text-sm md:text-base leading-relaxed">
+          <p>
+            Most businesses don't have a lead problem — they have a follow-up problem. Ads and SEO bring in inquiries, but if those inquiries sit in a text inbox, a missed call log, or a sticky note for a few hours, a good chunk of them book with whichever competitor called back first. A lead system is what closes that gap.
+          </p>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">What a lead system actually is</h2>
+            <p>
+              A lead system is the combination of tools and automated workflows that capture every inquiry the moment it comes in, then follow up automatically until that lead responds, books, or is disqualified. It typically includes a CRM to track every lead in one place, automated text and email sequences, missed-call text-back, and often an AI-assisted responder that can answer basic questions and book appointments after hours.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">Why "we'll call them back later" doesn't work</h2>
+            <p>
+              Response speed is one of the biggest, least-discussed factors in close rate. A lead who fills out a form or calls in is comparing options right now — not necessarily loyal to whoever they contacted first. Businesses that respond within minutes consistently out-book businesses that respond within hours, even when the actual service quality is identical.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">It also protects the leads you're already paying for</h2>
+            <p>
+              If you're running <a href="/services/google-ads" class="text-accent hover:text-accent-dim transition-colors">Google Ads</a> or <a href="/services/meta-ads" class="text-accent hover:text-accent-dim transition-colors">Meta Ads</a>, every lead that goes cold from slow follow-up is wasted ad spend, not just a missed opportunity. A lead system makes sure the leads you're already paying to generate actually get converted, which effectively lowers your real cost per customer without spending an extra dollar on ads.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">What good follow-up looks like in practice</h2>
+            <ul class="list-disc pl-5 space-y-2">
+              <li>A missed call automatically triggers a text so the lead isn't left waiting</li>
+              <li>New form submissions and calls land in one CRM pipeline instead of scattered across apps</li>
+              <li>Automated sequences follow up over days, not just once, without needing a person to remember</li>
+              <li>Completed jobs trigger automatic review requests to keep your Google rating growing</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">The takeaway</h2>
+            <p>
+              If your business generates leads from ads, SEO, or referrals but doesn't have a system that follows up automatically and consistently, you're likely losing a meaningful percentage of those leads to something as simple as timing. <a href="/services/lead-systems" class="text-accent hover:text-accent-dim transition-colors">See how Astrova builds lead systems</a> or <a href="/contact" class="text-accent hover:text-accent-dim transition-colors">get in touch</a> to talk through what's happening to your leads today.
+            </p>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+  <CTASection />
+  <Footer />
+</Layout>

@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ServicePageBody from '../../components/ServicePageBody.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+import ScrollReveal from '../../components/ScrollReveal.astro';
+---
+
+<Layout
+  title="Lead Systems & CRM Automation | Astrova Systems"
+  description="Automated lead systems that capture, follow up, and convert every inquiry, so auto shops and home service businesses stop losing leads to slow response times."
+>
+  <ScrollReveal />
+  <Header />
+  <main>
+    <Breadcrumbs items={[
+      { name: 'Home', url: '/' },
+      { name: 'Services', url: '/#services' },
+      { name: 'Lead Systems', url: '/services/lead-systems' },
+    ]} />
+    <ServicePageBody
+      eyebrow="Lead Systems & CRM Automation"
+      h1="Lead Systems That Follow Up So You Never Lose a Customer"
+      intro="Astrova Systems builds automated lead systems and CRM workflows that capture every inquiry, follow up instantly, and keep leads moving until they book. Most businesses aren't losing to competitors — they're losing leads to slow or missed follow-up. We fix that."
+      whatsIncluded={[
+        'CRM setup and pipeline configuration so every lead is tracked from first contact to close',
+        'Automated text and email follow-up sequences triggered the moment a lead comes in',
+        'Missed-call text-back so no inbound call goes unanswered',
+        'Review request automation to keep your Google rating growing after every job',
+        'AI-assisted responses that qualify inquiries and book appointments around the clock',
+      ]}
+      whoItsFor={[
+        'Auto shops and home service businesses generating leads from ads, SEO, or referrals but struggling to follow up fast enough',
+        'Owners who are missing calls or losing leads because follow-up depends on memory, not a system',
+        'Businesses that want their Google Ads or Meta Ads spend to convert at a higher rate',
+        'Teams ready to replace spreadsheets and sticky notes with a real CRM',
+      ]}
+      resultsToExpect={[
+        'Faster response times to every new lead, often within minutes instead of hours',
+        'Fewer leads falling through the cracks between first contact and booked job',
+        'A steady stream of new Google reviews from automated post-job requests',
+        'A clear pipeline view of every lead so nothing gets lost or forgotten',
+      ]}
+      relatedLinks={[
+        { label: 'Google Ads management', href: '/services/google-ads' },
+        { label: 'Meta Ads management', href: '/services/meta-ads' },
+        { label: 'What Is a Lead System and Why Your Business Needs One', href: '/blog/what-is-a-lead-system' },
+      ]}
+    />
+  </main>
+  <CTASection />
+  <Footer />
+</Layout>

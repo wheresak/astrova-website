@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ServicePageBody from '../../components/ServicePageBody.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+import ScrollReveal from '../../components/ScrollReveal.astro';
+---
+
+<Layout
+  title="Local SEO for Automotive & Home Service Businesses | Astrova Systems"
+  description="Local SEO built for automotive and home service businesses to rank higher on Google Maps and local search, without relying on paid ads for every new customer."
+>
+  <ScrollReveal />
+  <Header />
+  <main>
+    <Breadcrumbs items={[
+      { name: 'Home', url: '/' },
+      { name: 'Services', url: '/#services' },
+      { name: 'Local SEO', url: '/services/local-seo' },
+    ]} />
+    <ServicePageBody
+      eyebrow="Local SEO"
+      h1="Local SEO That Gets Automotive & Home Service Businesses Found on Google"
+      intro="Astrova Systems builds local SEO strategies specifically for auto shops, tint shops, detailing businesses, and home service companies that want to rank higher on Google Maps and local search results — and win customers without paying for every single click."
+      whatsIncluded={[
+        'Google Business Profile optimization so you show up in the local map pack',
+        'On-page SEO for your website targeting the services and locations you actually serve',
+        'Local citation building and directory consistency across the web',
+        'Review generation strategy to build the star rating and volume Google rewards',
+        'Ongoing keyword tracking and reporting on local rankings',
+      ]}
+      whoItsFor={[
+        'Auto shops, tint shops, and detailing businesses competing for local "near me" searches',
+        'Home service businesses (HVAC, roofing, landscaping, cleaning, and similar trades) that rely on local visibility',
+        'Businesses that want to reduce dependence on paid ads over time',
+        'Owners with a Google Business Profile that\'s outdated, incomplete, or barely optimized',
+      ]}
+      resultsToExpect={[
+        'Improved visibility in the Google Maps local pack for your core service terms',
+        'More inbound calls and website visits from organic local search, not just ads',
+        'A stronger, more complete Google Business Profile with consistent reviews',
+        'Long-term rankings that keep generating leads without an ongoing ad spend'
+      ]}
+      relatedLinks={[
+        { label: 'Website Design & Development', href: '/services/website-design' },
+        { label: 'Google Ads management', href: '/services/google-ads' },
+        { label: 'Local SEO for Auto Shops: How to Rank on Google Without Paying for Ads', href: '/blog/local-seo-for-auto-shops' },
+      ]}
+    />
+  </main>
+  <CTASection />
+  <Footer />
+</Layout>

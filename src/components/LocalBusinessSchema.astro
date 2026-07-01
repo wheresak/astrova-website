@@ -1,0 +1,16 @@
+---
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Astrova Systems',
+  url: 'https://astrovasystems.com',
+  logo: 'https://astrovasystems.com/images/astrova-logo.png',
+  areaServed: 'US',
+  founder: {
+    '@type': 'Person',
+    name: 'Zeyad Azab',
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

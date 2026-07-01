@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BlogPostingSchema from '../../components/BlogPostingSchema.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+import ScrollReveal from '../../components/ScrollReveal.astro';
+
+const title = 'Local SEO for Auto Shops: How to Rank on Google Without Paying for Ads';
+const description = 'A practical guide to local SEO for auto shops, covering Google Business Profile optimization, reviews, and local rankings that reduce reliance on paid ads.';
+const url = '/blog/local-seo-for-auto-shops';
+const datePublished = '2026-07-01';
+---
+
+<Layout title={`${title} | Astrova Systems`} description={description}>
+  <ScrollReveal />
+  <Header />
+  <BlogPostingSchema headline={title} description={description} datePublished={datePublished} url={url} />
+  <main>
+    <Breadcrumbs items={[
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blog' },
+      { name: title, url },
+    ]} />
+
+    <article class="py-16 md:py-24">
+      <div class="mx-auto max-w-3xl px-6">
+        <p class="font-display text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4">
+          Local SEO
+        </p>
+        <h1 class="font-display text-3xl md:text-5xl font-medium leading-tight mb-10">
+          {title}
+        </h1>
+
+        <div class="space-y-10 text-muted text-sm md:text-base leading-relaxed">
+          <p>
+            Paid ads can generate leads fast, but they stop the moment you stop paying. Local SEO works differently — it takes longer to build, but once an auto shop starts ranking in the Google Maps pack for its core services, it keeps generating calls and bookings without an ongoing ad budget behind every one of them.
+          </p>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">Start with your Google Business Profile</h2>
+            <p>
+              For local searches like "auto shop near me" or "brake repair [city]," Google Business Profile is usually the single biggest ranking factor. Make sure your categories, service list, hours, and photos are complete and accurate, and that your business name, address, and phone number match exactly across your website and every directory you're listed on.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">Reviews matter more than most shops realize</h2>
+            <p>
+              Review count and review recency both factor into local rankings, on top of the obvious trust signal reviews send to potential customers. Shops that ask every satisfied customer for a review — ideally through an automated request sent right after the job is done — consistently out-rank shops that only get reviews sporadically.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">Your website still needs to do its part</h2>
+            <p>
+              Local SEO isn't just about your Google Business Profile — Google also looks at your website to confirm you're relevant to a search. That means clear service pages (brakes, tint, detailing, whatever you offer), your city and service area mentioned naturally in the content, and a site that loads fast on mobile. If your <a href="/services/website-design" class="text-accent hover:text-accent-dim transition-colors">website</a> is outdated or thin on content, it's holding back rankings your Business Profile has already earned.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">Consistency beats one-time effort</h2>
+            <p>
+              Local SEO rewards businesses that keep showing consistent signals over time — new reviews, fresh photos, accurate listings, and a website that keeps getting incremental improvements — rather than a one-time setup that's never touched again. Shops that treat it as an ongoing part of their marketing, the same way they'd treat <a href="/services/google-ads" class="text-accent hover:text-accent-dim transition-colors">Google Ads</a> or <a href="/services/meta-ads" class="text-accent hover:text-accent-dim transition-colors">Meta Ads</a>, tend to see rankings compound rather than plateau.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">The takeaway</h2>
+            <p>
+              Local SEO won't replace paid ads overnight, but for auto shops it's one of the highest-leverage long-term investments available, since it keeps generating leads without a cost-per-click attached to every one of them. <a href="/services/local-seo" class="text-accent hover:text-accent-dim transition-colors">See how Astrova approaches local SEO</a> or <a href="/contact" class="text-accent hover:text-accent-dim transition-colors">get in touch</a> to see where your shop currently stands.
+            </p>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+  <CTASection />
+  <Footer />
+</Layout>

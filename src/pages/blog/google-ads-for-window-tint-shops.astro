@@ -1,0 +1,84 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BlogPostingSchema from '../../components/BlogPostingSchema.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+import ScrollReveal from '../../components/ScrollReveal.astro';
+
+const title = 'How Window Tint Shops Can Get More Customers with Google Ads';
+const description = 'Learn how window tint shops can use Google Ads to attract high-intent customers, avoid wasted spend, and grow bookings without competing purely on price.';
+const url = '/blog/google-ads-for-window-tint-shops';
+const datePublished = '2026-07-01';
+---
+
+<Layout title={`${title} | Astrova Systems`} description={description}>
+  <ScrollReveal />
+  <Header />
+  <BlogPostingSchema headline={title} description={description} datePublished={datePublished} url={url} />
+  <main>
+    <Breadcrumbs items={[
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blog' },
+      { name: title, url },
+    ]} />
+
+    <article class="py-16 md:py-24">
+      <div class="mx-auto max-w-3xl px-6">
+        <p class="font-display text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4">
+          Google Ads
+        </p>
+        <h1 class="font-display text-3xl md:text-5xl font-medium leading-tight mb-10">
+          {title}
+        </h1>
+
+        <div class="space-y-10 text-muted text-sm md:text-base leading-relaxed">
+          <p>
+            Window tint shops usually get customers one of two ways: word-of-mouth referrals, or someone driving by and noticing the shop. Both are slow, and neither scales. <a href="/services/google-ads" class="text-accent hover:text-accent-dim transition-colors">Google Ads</a> gives tint shops a third option — showing up the moment someone searches for "window tinting near me" or "ceramic tint prices," when they're already ready to book.
+          </p>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">Why tint shops are a great fit for Google Ads</h2>
+            <p>
+              Tinting is a high-intent, research-driven purchase. People compare shops, look at pricing, and read reviews before booking. That means search ads — which show up exactly when someone is actively looking — tend to outperform other ad formats for this kind of business. Instead of interrupting someone's scroll, you're answering a question they're already asking.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">Target the searches that actually convert</h2>
+            <p>
+              Broad terms like "window tint" bring in a mix of researchers and buyers, and often cost more per click than they're worth. Campaigns built around specific, high-intent terms — "ceramic window tint cost," "car window tinting [city]," "tint shop near me" — tend to convert better because the searcher is closer to booking. Layering in negative keywords (like "DIY," "tint removal," or "jobs") keeps budget away from clicks that were never going to convert.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">Send traffic to a page built to convert, not just your homepage</h2>
+            <p>
+              A lot of ad spend gets wasted sending clicks to a generic homepage instead of a page built around the exact service someone searched for. Pricing, before/after photos, warranty info, and a clear way to book should all be visible without scrolling. If your current site isn't built for that, it's worth pairing ad spend with a <a href="/services/website-design" class="text-accent hover:text-accent-dim transition-colors">website built to convert</a> before scaling budget.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">Don't let leads go cold after the click</h2>
+            <p>
+              Getting the click is only half the job. Tint shops that respond within minutes close noticeably more bookings than ones that call back hours later. A <a href="/services/lead-systems" class="text-accent hover:text-accent-dim transition-colors">lead system</a> that texts back missed calls and follows up automatically makes sure the ad spend you're already paying for doesn't go to waste.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-paper mb-4">The takeaway</h2>
+            <p>
+              Google Ads can be one of the most reliable ways for a tint shop to generate new bookings — but only when the keyword targeting, landing page, and follow-up all work together. If you're running ads without a clear system connecting those pieces, you're likely paying more per customer than you need to.
+            </p>
+            <p>
+              Want help setting this up for your shop? <a href="/services/google-ads" class="text-accent hover:text-accent-dim transition-colors">See how Astrova manages Google Ads</a> or <a href="/contact" class="text-accent hover:text-accent-dim transition-colors">get in touch</a> to talk through your specific market.
+            </p>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+  <CTASection />
+  <Footer />
+</Layout>

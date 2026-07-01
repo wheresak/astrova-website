@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Footer from '../components/Footer.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
+
+const formUrl = 'https://api.leadconnectorhq.com/widget/form/AmEwudg8hguIOBKbtjbC';
+---
+
+<Layout
+  title="Contact Astrova Systems | Astrova Systems"
+  description="Contact Astrova Systems to book a strategy call. Tell us your name, email, phone, and the service you're interested in, and we'll follow up right away."
+>
+  <ScrollReveal />
+  <Header />
+  <main>
+    <Breadcrumbs items={[
+      { name: 'Home', url: '/' },
+      { name: 'Contact', url: '/contact' },
+    ]} />
+
+    <section class="py-16 md:py-24">
+      <div class="mx-auto max-w-3xl px-6 text-center mb-12">
+        <p class="font-display text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4">
+          Get in touch
+        </p>
+        <h1 class="font-display text-3xl md:text-5xl font-medium leading-tight mb-6">
+          Contact Astrova Systems
+        </h1>
+        <p class="text-muted text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+          Fill out the form below with your name, email, phone number, and which service you're interested in — Google Ads, Meta Ads, website design, lead systems, or local SEO. We'll follow up shortly after.
+        </p>
+      </div>
+
+      <div class="mx-auto max-w-3xl px-6">
+        <div class="rounded-2xl bg-surface border border-border-hair overflow-hidden">
+          <iframe
+            src={formUrl}
+            style="width: 100%; height: 100%; border: none; border-radius: 3px;"
+            id="inline-AmEwudg8hguIOBKbtjbC"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Astrova Form lead gen"
+            data-height="659"
+            data-layout-iframe-id="inline-AmEwudg8hguIOBKbtjbC"
+            data-form-id="AmEwudg8hguIOBKbtjbC"
+            title="Astrova Form lead gen"
+          ></iframe>
+        </div>
+        <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
+        <p class="text-center text-sm text-muted mt-6">
+          Form not loading?
+          <a href={formUrl} target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-dim transition-colors">
+            Open the form in a new tab &rarr;
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

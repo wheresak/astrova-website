@@ -1,0 +1,50 @@
+---
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  faqs: FAQ[];
+}
+
+const { faqs } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<section id="faq" class="border-b border-border-hair py-24 md:py-32">
+  <div class="mx-auto max-w-3xl px-6">
+    <p class="font-display text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4" data-reveal>
+      FAQ
+    </p>
+    <h2 class="font-display text-3xl md:text-5xl font-medium leading-tight max-w-xl mb-12 md:mb-16" data-reveal style="--reveal-delay: 80ms">
+      Common questions about working with Astrova
+    </h2>
+
+    <div class="divide-y divide-border-hair border-t border-border-hair">
+      {faqs.map((faq, i) => (
+        <details class="group py-6" data-reveal style={`--reveal-delay: ${i * 60}ms`}>
+          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-display text-base md:text-lg font-medium">
+            {faq.question}
+            <span class="shrink-0 text-accent transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+          </summary>
+          <p class="mt-4 text-muted text-sm md:text-base leading-relaxed" set:html={faq.answer} />
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

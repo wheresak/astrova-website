@@ -4,21 +4,31 @@ const services = [
     title: 'Lead systems',
     description: 'Astrova Systems streamlines lead flow, follow-up, and conversion so businesses can scale more efficiently.',
     tag: 'Automation',
+    href: '/services/lead-systems',
   },
   {
     title: 'Google Ads',
     description: 'Strategic search campaigns designed to bring in high-intent leads ready to take action.',
     tag: 'Paid search',
+    href: '/services/google-ads',
   },
   {
     title: 'Meta Ads',
     description: 'Facebook and Instagram campaigns built to generate attention, leads, and profitable customer growth.',
     tag: 'Paid social',
+    href: '/services/meta-ads',
   },
   {
     title: 'Website creation',
     description: 'Clean, modern, high-converting websites tailored to help businesses look credible and close more clients.',
     tag: 'Design + build',
+    href: '/services/website-design',
+  },
+  {
+    title: 'Local SEO',
+    description: 'Local search and Google Maps visibility built for automotive and home service businesses to rank without paying for every click.',
+    tag: 'Organic search',
+    href: '/services/local-seo',
   },
 ];
 ---
@@ -32,10 +42,11 @@ const services = [
       Built to help auto shops attract, convert, and scale
     </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
       {services.map((service, i) => (
-        <div
-          class="tilt-card relative rounded-2xl bg-surface border border-border-hair p-8 md:p-10 overflow-hidden"
+        <a
+          href={service.href}
+          class="tilt-card relative block rounded-2xl bg-surface border border-border-hair p-8 md:p-10 overflow-hidden"
           data-reveal
           style={`--reveal-delay: ${i * 90}ms`}
         >
@@ -45,7 +56,8 @@ const services = [
           </span>
           <h3 class="relative font-display text-2xl font-medium mb-3">{service.title}</h3>
           <p class="relative text-muted text-sm md:text-base leading-relaxed">{service.description}</p>
-        </div>
+          <span class="relative inline-block mt-5 text-sm text-accent">Learn more &rarr;</span>
+        </a>
       ))}
     </div>
   </div>

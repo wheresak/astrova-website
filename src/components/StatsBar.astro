@@ -1,0 +1,24 @@
+---
+const stats = [
+  { value: '50+', label: 'Clients served' },
+  { value: '$2M+', label: 'In ad spend managed' },
+  { value: '4.9★', label: 'Google rating' },
+];
+---
+
+<section class="border-b border-border-hair py-10 md:py-14" aria-label="Astrova Systems by the numbers">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
+      {stats.map((stat, i) => (
+        <div
+          class="rounded-2xl bg-surface border border-border-hair px-6 py-6 text-center"
+          data-reveal
+          style={`--reveal-delay: ${i * 80}ms`}
+        >
+          <p class="font-display text-3xl md:text-4xl font-medium text-accent">{stat.value}</p>
+          <p class="text-muted text-sm mt-1">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

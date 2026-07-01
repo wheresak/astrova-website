@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+import ScrollReveal from '../../components/ScrollReveal.astro';
+
+const posts = [
+  {
+    title: 'How Window Tint Shops Can Get More Customers with Google Ads',
+    excerpt: 'A practical breakdown of how tint shops can use Google Ads to bring in high-intent customers instead of competing purely on price.',
+    href: '/blog/google-ads-for-window-tint-shops',
+  },
+  {
+    title: 'What Is a Lead System and Why Your Business Needs One',
+    excerpt: 'Why most businesses aren\'t losing to competitors — they\'re losing leads to slow follow-up — and what a real lead system fixes.',
+    href: '/blog/what-is-a-lead-system',
+  },
+  {
+    title: 'Local SEO for Auto Shops: How to Rank on Google Without Paying for Ads',
+    excerpt: 'The local SEO fundamentals auto shops need to rank in the Google Maps pack and reduce reliance on paid ads over time.',
+    href: '/blog/local-seo-for-auto-shops',
+  },
+];
+---
+
+<Layout
+  title="Blog | Astrova Systems"
+  description="Practical, no-fluff advice on Google Ads, local SEO, and lead systems for auto shops and home service businesses, straight from the Astrova Systems team."
+>
+  <ScrollReveal />
+  <Header />
+  <main>
+    <Breadcrumbs items={[
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blog' },
+    ]} />
+
+    <section class="py-16 md:py-24">
+      <div class="mx-auto max-w-4xl px-6 mb-12 md:mb-16">
+        <p class="font-display text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4">
+          Astrova blog
+        </p>
+        <h1 class="font-display text-3xl md:text-5xl font-medium leading-tight max-w-2xl">
+          Advice on ads, SEO, and lead systems for growing businesses
+        </h1>
+      </div>
+
+      <div class="mx-auto max-w-4xl px-6 grid grid-cols-1 gap-6">
+        {posts.map((post) => (
+          <a
+            href={post.href}
+            class="block rounded-2xl bg-surface border border-border-hair p-8 hover:border-muted transition-colors"
+          >
+            <h2 class="font-display text-xl md:text-2xl font-medium mb-3">{post.title}</h2>
+            <p class="text-muted text-sm md:text-base leading-relaxed mb-4">{post.excerpt}</p>
+            <span class="text-sm text-accent">Read more &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+  <CTASection />
+  <Footer />
+</Layout>

@@ -2,21 +2,57 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import StatsBar from '../components/StatsBar.astro';
 import LogoMarquee from '../components/LogoMarquee.astro';
 import Services from '../components/Services.astro';
 import Process from '../components/Process.astro';
 import About from '../components/About.astro';
 import Testimonials from '../components/Testimonials.astro';
 import GoogleReviews from '../components/GoogleReviews.astro';
+import FAQSection from '../components/FAQSection.astro';
 import CTASection from '../components/CTASection.astro';
 import Footer from '../components/Footer.astro';
 import OrganizationSchema from '../components/OrganizationSchema.astro';
+import LocalBusinessSchema from '../components/LocalBusinessSchema.astro';
 import ScrollReveal from '../components/ScrollReveal.astro';
 
 const homeTestimonials = [
   { video: '/videos/testimonial-10.mp4', poster: '/images/poster10.png', name: 'Jared', company: 'Wraptors Kingston' },
   { video: '/videos/testimonial-2.mp4', poster: '/images/poster2.png', name: 'Ryan', company: 'Shade-EZ' },
   { video: '/videos/testimonial-11.mp4', poster: '/images/poster11.png', name: 'Joshua', company: 'Got Tint' },
+];
+
+const homeFAQs = [
+  {
+    question: 'How much do Google Ads cost for a small business?',
+    answer:
+      'Google Ads spend varies by industry and competition, but most auto shops and home service businesses start with a modest monthly budget and scale it up as campaigns prove profitable. What matters more than raw spend is cost per lead and close rate. See our <a href="/services/google-ads" class="text-accent hover:text-accent-dim transition-colors">Google Ads management</a> page for how we approach budgeting.',
+  },
+  {
+    question: 'What is a lead system?',
+    answer:
+      'A lead system is the combination of a CRM, automated follow-up, and missed-call text-back that captures every inquiry and follows up until it books, instead of letting leads go cold. Read more in <a href="/blog/what-is-a-lead-system" class="text-accent hover:text-accent-dim transition-colors">What Is a Lead System and Why Your Business Needs One</a>.',
+  },
+  {
+    question: 'How long does it take to see results from ads?',
+    answer:
+      'Google Ads and Meta Ads campaigns typically start generating leads within the first one to two weeks, with performance improving over the first 60-90 days as campaigns collect data and get optimized. Local SEO takes longer to build but compounds over time. See our <a href="/services/local-seo" class="text-accent hover:text-accent-dim transition-colors">local SEO</a> page for typical timelines.',
+  },
+  {
+    question: "What's the difference between Google Ads and Meta Ads?",
+    answer:
+      'Google Ads targets people actively searching for your service right now, while Meta Ads (Facebook and Instagram) targets people by interest and demographic before they\'re searching, building awareness and generating leads through creative and offers. Many businesses use both. See <a href="/services/google-ads" class="text-accent hover:text-accent-dim transition-colors">Google Ads</a> and <a href="/services/meta-ads" class="text-accent hover:text-accent-dim transition-colors">Meta Ads</a>.',
+  },
+  {
+    question: 'Do I need a new website, or can Astrova use my current one?',
+    answer:
+      "It depends how your current site performs. If it loads quickly, is mobile-friendly, and converts visitors into calls or bookings, we can often optimize it. If it's outdated or slow, a new build usually pays for itself in improved ad and SEO performance. See <a href=\"/services/website-design\" class=\"text-accent hover:text-accent-dim transition-colors\">Website Design & Development</a>.",
+  },
+  {
+    question: 'What industries and areas does Astrova Systems work with?',
+    answer:
+      'Astrova Systems primarily works with auto shops, tint shops, detailing businesses, and home service companies across the United States, combining <a href="/services/google-ads" class="text-accent hover:text-accent-dim transition-colors">Google Ads</a>, <a href="/services/meta-ads" class="text-accent hover:text-accent-dim transition-colors">Meta Ads</a>, <a href="/services/local-seo" class="text-accent hover:text-accent-dim transition-colors">local SEO</a>, and <a href="/services/lead-systems" class="text-accent hover:text-accent-dim transition-colors">lead systems</a> into one system. <a href="/contact" class="text-accent hover:text-accent-dim transition-colors">Get in touch</a> to see if we\'re a fit for your business.',
+  },
 ];
 ---
 
@@ -25,10 +61,12 @@ const homeTestimonials = [
   description="Astrova Systems helps auto shops grow through high-converting websites, Google Ads, Meta Ads, and streamlined lead systems built to turn traffic into clients."
 >
   <OrganizationSchema slot="head" />
+  <LocalBusinessSchema slot="head" />
   <ScrollReveal />
   <Header />
   <main>
     <Hero />
+    <StatsBar />
     <LogoMarquee />
     <Services />
     <Process />
@@ -40,6 +78,7 @@ const homeTestimonials = [
       </a>
     </div>
     <GoogleReviews />
+    <FAQSection faqs={homeFAQs} />
     <CTASection />
   </main>
   <Footer />
