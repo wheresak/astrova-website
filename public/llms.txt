@@ -1,6 +1,6 @@
 # Astrova Systems
 
-> Astrova Systems is a marketing and systems agency, founded by Zeyad Azab, that helps auto shops, tint shops, detailing businesses, and home service companies grow through paid advertising, website design, and automated lead systems.
+> Astrova Systems is a marketing and systems agency, founded by Zico Azab, that helps auto shops, tint shops, detailing businesses, and home service companies grow through paid advertising, website design, and automated lead systems.
 
 Astrova Systems combines Google Ads, Meta Ads, website design, local SEO, and CRM/lead automation into a single connected system, rather than offering these as disconnected services. The goal of every engagement is to increase booked jobs and revenue for auto and home service businesses, with reporting tied to real metrics like cost per lead and close rate, not vanity metrics.
 
@@ -14,7 +14,7 @@ Astrova Systems combines Google Ads, Meta Ads, website design, local SEO, and CR
 
 ## Company
 
-- [About](https://astrovasystems.com/about): Background on Astrova Systems and founder Zeyad Azab.
+- [About](https://astrovasystems.com/about): Background on Astrova Systems and founder Zico Azab.
 - [Testimonials](https://astrovasystems.com/testimonials): Client video testimonials and Google reviews.
 - [Blog](https://astrovasystems.com/blog): Articles on Google Ads, local SEO, and lead systems for service businesses.
 - [Contact](https://astrovasystems.com/contact): Book a strategy call with Astrova Systems.
